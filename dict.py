@@ -1,5 +1,5 @@
 class AlphaDict:
-    ALPHA_SIZE = 128
+    ALPHA_SIZE = 128  # For 7-bit ASCII, for 8-bit increase to 256
     NUMBER_OF_STRINGS = 0
 
     def __init__(self):

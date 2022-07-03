@@ -1,14 +1,18 @@
 from UkkonensSuffixTree.active_information import ActiveInformation
-from UkkonensSuffixTree.alpha_dictionary import AlphaDict
+from UkkonensSuffixTree.dict import AlphaDict
 from UkkonensSuffixTree.pointer_int import Pointer
 from UkkonensSuffixTree.vertex import Vertex
 
 
 class GeneralisedSuffixTree:
-    """Ukkonen's linear-time implicit suffix tree construction of multiple input strings"""
+    """
+    Ukkonen's linear-time implicit suffix tree construction of multiple input strings
+    Terminal characters for each string get stored as integers > `AlphaDict.NUMBER_OF_STRINGS` hence why the tree is
+    initially constructed by inputting the number of strings, which is a fixed amount
+    """
 
     def __init__(self, number_of_strings: int = 1) -> None:
-        AlphaDict.NUMBER_OF_STRINGS = number_of_strings
+        AlphaDict.NUMBER_OF_STRINGS = number_of_strings  # number of different strings to be placed into the generalised suffix tree
         self.txt_total: list[tuple[int, ...]] = []
         self.end: Pointer | None = None
         self.ROOT: Vertex = Vertex.create_root()
@@ -17,6 +21,7 @@ class GeneralisedSuffixTree:
         self._do_ukkonen(txt, string_number)
 
     def _do_ukkonen(self, txt: str, string_number) -> None:
+        assert 0 <= string_number < AlphaDict.NUMBER_OF_STRINGS
         txt_lst = tuple(list(map(ord, [*txt])) + [AlphaDict.ALPHA_SIZE + string_number])
         self.txt_total.append(txt_lst)
         self.end = Pointer()
@@ -150,6 +155,7 @@ class GeneralisedSuffixTree:
         return current_vertex
 
     def search_for_match(self, search_string) -> list[tuple[int, int]]:
+        """Search for subtring mat"""
         vertex = self._search_for_final_matching_vertex(search_string)
         visited = []
         if vertex is None: return visited

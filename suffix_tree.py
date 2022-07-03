@@ -6,7 +6,10 @@ from UkkonensSuffixTree.vertex import Vertex
 
 
 class SuffixTree:
-    """Ukkonen's linear-time implicit suffix tree construction"""
+    """
+    Ukkonen's linear-time implicit suffix tree construction
+    Accepts single strings, with the terminal character being `$` (do not use this character in input)
+    """
 
     def __init__(self) -> None:
         self.txt_total: list = []
@@ -103,7 +106,8 @@ class SuffixTree:
                                   current_txt_mismatch_idx: int) -> Vertex:
         # rule 2 normal scenario
         active_vertex.remove_child(self.txt_total[child_vertex.parent_edge_start_index])
-        new_vert = Vertex(child_vertex.parent_edge_start_index, before_mismatch_char_edge_idx)
+        new_vert = Vertex(child_vertex.string_number,
+                          child_vertex.parent_edge_start_index, before_mismatch_char_edge_idx)
         active_vertex.add_child(new_vert, self.txt_total[child_vertex.parent_edge_start_index])
 
         new_vert.add_child(child_vertex, self.txt_total[mismatch_edge_idx])

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from UkkonensSuffixTree.alpha_dictionary import AlphaDict
+from UkkonensSuffixTree.dict import AlphaDict
 from UkkonensSuffixTree.pointer_int import Pointer
 
 

@@ -8,7 +8,7 @@ class GeneralisedSuffixTree:
     """
     Ukkonen's linear-time implicit suffix tree construction of multiple input strings
     Terminal characters for each string get stored as integers > `AlphaDict.NUMBER_OF_STRINGS` hence why the tree is
-    initially constructed by inputting the number of strings, which is a fixed amount
+    initially constructed by inputting the number of strings, which is a fixed for the duration of the program.
     """
 
     def __init__(self, number_of_strings: int = 1) -> None:
@@ -173,7 +173,8 @@ class GeneralisedSuffixTree:
 
 
 if __name__ == "__main__":
-    s1 = GeneralisedSuffixTree(4)
-    s1.add_to_suffix_tree("abc")
-    s1.add_to_suffix_tree("abc", 1)
+    s1 = GeneralisedSuffixTree(2)
+    s1.add_to_suffix_tree("abcabcbbbbbacabcab", 0)
+    s1.add_to_suffix_tree("abastabc", 1)
+    # One can keep adding but must change constructor param to desired number
     print(s1.search_for_match("abc"))

@@ -143,6 +143,7 @@ class SuffixTree:
         return None if vertex is None else vertex.parent_edge_start_index
 
     def search_for_match(self, search_string) -> list[int]:
+        """Search for exact substring matches (not suffix matches)"""
         vertex = self._search_for_final_matching_vertex(search_string)
         visited = []
         if vertex is None: return visited

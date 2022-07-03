@@ -155,7 +155,7 @@ class GeneralisedSuffixTree:
         return current_vertex
 
     def search_for_match(self, search_string) -> list[tuple[int, int]]:
-        """Search for subtring mat"""
+        """Search for exact substring matches (not suffix matches)"""
         vertex = self._search_for_final_matching_vertex(search_string)
         visited = []
         if vertex is None: return visited

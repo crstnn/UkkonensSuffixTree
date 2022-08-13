@@ -29,9 +29,12 @@ class AlphabetDict:
         return len(self) != 0
 
     def __iter__(self):
-        return iter(filter(lambda x: x is not None, self.entries))
+        return filter(lambda x: x is not None, self.entries)
 
-    def get_entries_greater_than_alpha_size(self):
+    def non_alphabet_entries(self):
+        return filter(lambda x: x is not None, self.entries[:AlphabetDict.ALPHA_SIZE+1])
+
+    def alphabet_entries(self):
         return filter(lambda x: x is not None, self.entries[AlphabetDict.ALPHA_SIZE:])
 
     def pop(self, key):

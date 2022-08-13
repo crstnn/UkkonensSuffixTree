@@ -29,17 +29,21 @@ class AlphaDict:
         return len(self) != 0
 
     def __iter__(self):
-        return filter(lambda x: x is not None, self.entries)
+        return iter(filter(lambda x: x is not None, self.entries))
+
+    def get_entries_greater_than_alpha_size(self):
+        return filter(lambda x: x is not None, self.entries[AlphaDict.ALPHA_SIZE:])
 
     def pop(self, key):
         ret = self[key]
         del self[key]
         return ret
 
-    def get_entries_greater_than_alpha_size(self):
-        return filter(lambda x: x is not None, self.entries[AlphaDict.ALPHA_SIZE:])
-
     @staticmethod
     def rank(char):
         return char
         # return ord(char)
+
+a = AlphaDict()
+
+print(a)

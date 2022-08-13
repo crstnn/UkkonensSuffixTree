@@ -1,5 +1,5 @@
 from UkkonensSuffixTree.active_information import ActiveInformation
-from UkkonensSuffixTree.dict import AlphaDict
+from UkkonensSuffixTree.dict import AlphabetDict
 from UkkonensSuffixTree.pointer_int import Pointer
 from UkkonensSuffixTree.vertex import Vertex
 
@@ -12,7 +12,7 @@ class GeneralisedSuffixTree:
     """
 
     def __init__(self, number_of_strings: int = 1) -> None:
-        AlphaDict.NUMBER_OF_STRINGS = number_of_strings  # number of different strings to be placed into the generalised suffix tree
+        AlphabetDict.NUMBER_OF_STRINGS = number_of_strings  # number of different strings to be placed into the generalised suffix tree
         self.txt_total: list[tuple[int, ...]] = []
         self.end: Pointer | None = None
         self.ROOT: Vertex = Vertex.create_root()
@@ -21,8 +21,8 @@ class GeneralisedSuffixTree:
         self._do_ukkonen(txt, string_number)
 
     def _do_ukkonen(self, txt: str, string_number) -> None:
-        assert 0 <= string_number < AlphaDict.NUMBER_OF_STRINGS
-        txt_lst = tuple(list(map(ord, [*txt])) + [AlphaDict.ALPHA_SIZE + string_number])
+        assert 0 <= string_number < AlphabetDict.NUMBER_OF_STRINGS
+        txt_lst = tuple(list(map(ord, [*txt])) + [AlphabetDict.ALPHA_SIZE + string_number])
         self.txt_total.append(txt_lst)
         self.end = Pointer()
         pending_vertex = None

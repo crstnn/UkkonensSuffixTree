@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from UkkonensSuffixTree.dict import AlphaDict
+from UkkonensSuffixTree.dict import AlphabetDict
 from UkkonensSuffixTree.pointer_int import Pointer
 
 
@@ -8,7 +8,7 @@ class Vertex:
 
     def __init__(self, string_number, start_idx, end_idx):
         self.is_root: bool = False
-        self.children: AlphaDict | None = None
+        self.children: AlphabetDict | None = None
 
         self.parent_edge_start_index: int = start_idx
         self._parent_edge_end_index: Pointer | int = end_idx
@@ -30,7 +30,7 @@ class Vertex:
 
     def add_child(self, child: Vertex, child_first_char: int) -> None:
         if self.children is None:
-            self.children = AlphaDict()
+            self.children = AlphabetDict()
         self.children[child_first_char] = child
 
     def remove_child(self, child_first_char: int) -> None:

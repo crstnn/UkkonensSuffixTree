@@ -1,4 +1,4 @@
-from UkkonensSuffixTree.vertex import Vertex
+from vertex import Vertex
 
 
 class ActiveInformation:

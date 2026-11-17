@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from UkkonensSuffixTree.dict import AlphabetDict
-from UkkonensSuffixTree.pointer_int import Pointer
+from dict import AlphabetDict
+from pointer_int import Pointer
 
 
 class Vertex:

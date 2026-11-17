@@ -1,7 +1,7 @@
-from UkkonensSuffixTree.active_information import ActiveInformation
-from UkkonensSuffixTree.dict import AlphabetDict
-from UkkonensSuffixTree.pointer_int import Pointer
-from UkkonensSuffixTree.vertex import Vertex
+from active_information import ActiveInformation
+from dict import AlphabetDict
+from pointer_int import Pointer
+from vertex import Vertex
 
 
 class GeneralisedSuffixTree:

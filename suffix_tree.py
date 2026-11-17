@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from UkkonensSuffixTree.pointer_int import Pointer
-from UkkonensSuffixTree.active_information import ActiveInformation
-from UkkonensSuffixTree.vertex import Vertex
+from pointer_int import Pointer
+from active_information import ActiveInformation
+from vertex import Vertex
 
 
 class SuffixTree:
